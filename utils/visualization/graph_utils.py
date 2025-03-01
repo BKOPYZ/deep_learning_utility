@@ -1,6 +1,20 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
+plt.style("ggplot")
+
+
+def plot_loss_function(training_loss, validation_loss=None, title="Loss Function"):
+    plt.figure(figsize=(10, 5))
+    plt.plot(training_loss, label="Training Loss")
+    if validation_loss is not None:
+        plt.plot(validation_loss, label="Validation Loss")
+    plt.xlabel("Epochs")
+    plt.ylabel("Loss")
+    plt.title(title)
+    plt.legend()
+    plt.grid(True)
+    plt.show()
 
 def plot_show_image_with_labels(row, col, images, labels, title=None):
     fig, axs = plt.subplots(row, col, figsize=(15, 15))
